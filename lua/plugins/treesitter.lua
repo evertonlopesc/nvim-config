@@ -1,0 +1,27 @@
+return {
+  "nvim-treesitter/nvim-treesitter", -- O Lazy aceita o nome curto ou completo
+  build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
+  config = function()
+    local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+    if not status_ok then
+      return
+    end
+
+    configs.setup({
+      ensure_installed = { 
+        "lua", "vim", "vimdoc", "query", 
+        "python", "ruby", "javascript", "typescript", "rust" 
+      },
+      sync_install = false,
+      auto_install = true,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+      indent = {
+        enable = true,
+      },
+    })
+  end,
+}

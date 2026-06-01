@@ -1,0 +1,7 @@
+# Ignorar arquivos de swap e temporários do Vim/Neovim
+*.swp
+*.swo
+.netrwhist
+
+# Caso você crie alguma pasta de testes locais que não queira subir
+.env
