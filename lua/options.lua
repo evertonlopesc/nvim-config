@@ -25,3 +25,25 @@ opt.smartindent = true
 
 -- Área de transferência (O que conversamos antes: integra com o navegador!)
 opt.clipboard = "unnamedplus"
+
+-- Criar um grupo para organizar as nossas automações nativas
+local autocmd_group = vim.api.nvim_create_augroup("CustomAutocommands", { clear = true })
+
+-- Remover trailing whitespaces automaticamente antes de salvar qualquer arquivo
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = autocmd_group,
+  pattern = "*",
+  callback = function()
+    -- Guarda a posição atual do cursor para você não perder o foco de onde estava digitando
+    local save_cursor = vim.fn.getpos(".")
+
+    -- Executa a substituição global (procura por espaços no fim da linha e substitui por nada)
+    -- O 'pcall' serve para o Neovim não disparar um erro visual caso o arquivo já esteja limpo
+    pcall(function()
+      vim.cmd([[%s/\s\+$//e]])
+    end)
+
+    -- Devolve o cursor exatamente para o mesmo sítio onde você estava
+    vim.fn.setpos(".", save_cursor)
+  end,
+})

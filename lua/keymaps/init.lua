@@ -13,7 +13,7 @@ _G.ReloadConfig = function()
   -- Recarrega apenas o arquivo de opções e atalhos manualmente
   dofile(vim.fn.stdpath("config") .. "/lua/options.lua")
   dofile(vim.fn.stdpath("config") .. "/lua/keymaps/init.lua")
-  
+
   print("Configurações de opções e atalhos recarregadas!")
 end
 
