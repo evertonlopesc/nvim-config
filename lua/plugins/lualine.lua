@@ -10,7 +10,7 @@ return {
     require("lualine").setup({
       options = {
         -- O Lualine detecta o Catppuccin e puxa as cores do seu tema automaticamente!
-        theme = "catppuccin",
+        theme = "auto",
 
         -- Separadores elegantes em formato de setas/triângulos para um visual moderno
         component_separators = { left = "", right = "" },
