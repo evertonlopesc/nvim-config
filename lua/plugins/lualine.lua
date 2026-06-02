@@ -1,7 +1,8 @@
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
-    "nvim-tree/nvim-web-devicons" -- Ícones bonitos para a barra
+    "nvim-tree/nvim-web-devicons", -- Ícones bonitos para a barra
+    "catppuccin/nvim",
   },
   -- Carrega quase imediatamente para você ter o visual logo ao abrir o editor
   event = "VeryLazy",
