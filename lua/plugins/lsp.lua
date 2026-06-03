@@ -29,7 +29,9 @@ return {
         "pyright",
         "solargraph",
         "ts_ls",
-        "rust_analyzer"
+        "rust_analyzer",
+        "html",
+        "emmet_ls",
       }
 
       mason_lspconfig.setup({
@@ -67,7 +69,7 @@ return {
       -- INICIALIZAÇÃO ATUALIZADA (Adequada para o Neovim mais recente)
       -- Em vez de lspconfig[server].setup(), usamos o novo padrão vim.lsp.config
       for _, server in ipairs(servers) do
-        -- ts_ls precisa de um pequeno ajuste de nome na API nativa se necessário, 
+        -- ts_ls precisa de um pequeno ajuste de nome na API nativa se necessário,
         -- mas o vim.lsp.config aceita a tabela de configurações diretamente:
         local config = {
           on_attach = on_attach,

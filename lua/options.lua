@@ -47,3 +47,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.fn.setpos(".", save_cursor)
   end,
 })
+
+-- Atalho inteligente para arquivos ERB
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "eruby", -- O Neovim reconhece arquivos .erb como 'eruby'
+  callback = function()
+    -- Quando você digitar <%, ele fecha com %> e joga o cursor no meio
+    vim.keymap.set("i", "<%", "<%  %><Left><Left><Left>", { buffer = true })
+    -- Se digitar %=, ele já abre imprimindo na tela
+    vim.keymap.set("i", "<%=", "<%=  %><Left><Left><Left>", { buffer = true })
+  end,
+})
