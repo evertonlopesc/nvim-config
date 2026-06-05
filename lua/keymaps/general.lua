@@ -31,6 +31,8 @@ map("n", "<space>bp", "<Cmd>bprevious<Cr>", { desc = "Buffer anterior" })
 map("n", "<space>bb", "<Cmd>buffers<Cr>", { desc = "Buffers lista" })
 map("n", "<space>bd", "<Cmd>bdelete<Cr>", { desc = "Buffers deletar" })
 
+map("n", "<space>h", "<Cmd>nohlsearch<Cr>", { desc = "Remove highlighting" })
+
 -- INSERT MODE
 map("i", "jj", "<Esc>", { desc = "Sair do modo insert" , silent = true })
 map("i", "jk", "<Cr>", { desc = "Querba de linha", silent = true })
