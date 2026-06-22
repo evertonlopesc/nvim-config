@@ -1,13 +1,15 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
-  
+
   -- O Lazy.nvim só vai carregar o Telescope quando você apertar um desses atalhos!
   keys = {
     { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Buscar Arquivos" },
     { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Buscar Texto" },
     { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Listar Buffers" },
     { "<leader>fh", function() require("telescope.builtin").oldfiles() end, desc = "Histórico" },
+    { "<leader>fd", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, desc = "Diagnósticos do Arquivo" },
+    { "<leader>ft", function() require("telescope.builtin").builtin() end, desc = "Telescope" },
   },
 
   config = function()

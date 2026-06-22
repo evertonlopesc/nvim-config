@@ -57,6 +57,9 @@ return {
 
         opts.desc = "Mostrar Referências"
         keymap("n", "gr", function() require('telescope.builtin').lsp_references() end, opts)
+
+        opts.desc = "Mostrar Erro/Aviso Flutuante"
+        keymap("n", "gl", vim.diagnostic.open_float, opts)
       end
 
       -- Capacidades de Autocompletar
@@ -120,7 +123,8 @@ return {
           ["<C-j>"] = cmp.mapping.select_next_item(),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4), -- Rola para cima
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),  -- Rola para baixo ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
